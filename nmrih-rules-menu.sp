@@ -18,7 +18,7 @@ int maxRules;
 
 public void OnPluginStart()
 {
-	LoadTranslations("server-rules.phrases");
+	LoadTranslations("nmrih-rules-menu.phrases");
 	DiscoverRules();
 
 	AddCommandListener(OnPlayerJoinGame, "joingame");
