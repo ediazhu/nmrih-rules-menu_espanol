@@ -1,0 +1,22 @@
+"Phrases"
+{
+	"Title"
+	{
+		"en"	"Server Rules"
+	}
+	
+	"0"
+	{
+		"en"	"Don't do thing 1"
+	}
+
+	"1"
+	{
+		"en"	"Don't do thing 2"
+	}
+
+	"2"
+	{
+		"en"	"Don't do thing 3"
+	}
+}
