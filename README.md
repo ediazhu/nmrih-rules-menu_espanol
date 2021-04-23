@@ -10,10 +10,10 @@ Players who acknowledge the rules won't be prompted again for N (configurable) d
 Sourcemod 1.10 or above
 
 # Setup
-Place `nmrih-rules-menu.smx` in `addons/sourcemod/plugins`
-Place `nmrih-rules-menu.phrases.txt` in `addons/sourcemod/translations`
+- Place `nmrih-rules-menu.smx` in `addons/sourcemod/plugins`
+- Place `nmrih-rules-menu.phrases.txt` in `addons/sourcemod/translations`
 
-Add your rules to `nmrih-rules-menu.phrases.txt`. Keys should be consecutive numbers starting from 0.
+- Add your rules to `nmrih-rules-menu.phrases.txt`. Keys should be consecutive numbers starting from 0.
 
 ```cpp
 "Phrases"
@@ -36,11 +36,11 @@ Add your rules to `nmrih-rules-menu.phrases.txt`. Keys should be consecutive num
 
 # ConVars and commands
 
-- sm_rules_acknowledge_expire_days (Default: 90)
+- `sm_rules_acknowledge_expire_days` (Default: 90)
 	- Days to wait after a player has acknowledged the rules before showing them again
 
-- sm_rules_cmds (Default: "sm_rules")
+- `sm_rules_cmds` (Default: "sm_rules")
 	- Space-separated list of console commands that should bring up the rules
 
-- sm_rules_refresh (Requires ADMFLAG_GENERIC)
+- `sm_rules_refresh` (Requires ADMFLAG_GENERIC)
 	- Refresh rules cache
