@@ -2,8 +2,9 @@
 Simple lightweight server rules menu for No More Room in Hell.
 
 Displays server rules as a radio menu to players after they press "Join Game". 
-
 Players who acknowledge the rules won't be prompted again for N (configurable) days.
+
+![nmrih_FaJop3qLwm](https://user-images.githubusercontent.com/11559683/115821664-93553e00-a3d9-11eb-957d-8bccc9d4b219.png)
 
 
 # Requirements
