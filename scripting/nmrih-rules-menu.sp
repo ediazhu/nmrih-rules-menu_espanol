@@ -2,12 +2,13 @@
  
 #pragma semicolon 1
 
-public Plugin myinfo = {
-	name        = "[NMRiH] Rules Menu",
-	author      = "Dysphie",
+public Plugin myinfo = 
+{
+	name = "[NMRiH] Rules Menu",
+	author = "Dysphie",
 	description = "Lightweight rules menu",
-	version     = "0.1.0",
-	url         = ""
+	version = "0.1.1",
+	url = ""
 };
 
 Cookie rulesCookie;
@@ -27,7 +28,6 @@ public void OnPluginStart()
 	RegAdminCmd("sm_rules_refresh", OnCmdReloadRules, ADMFLAG_GENERIC);
 	cvExpireDays = CreateConVar("sm_rules_acknowledge_expire_days", "90");
 	cvCommands = CreateConVar("sm_rules_cmds", "sm_rules sm_rulez");
-
 	AutoExecConfig();
 }
 
@@ -80,14 +80,12 @@ void CheckShouldDisplayRules(int clientSerial)
 		return;
 
 	int client = GetClientFromSerial(clientSerial);
-	if (!client)
+	if (!client || !AreClientCookiesCached(client))
 		return;
 
-	if (!AreClientCookiesCached(client))
-		return;
-
+	// Expire cookie if it's been there for too long
 	int daysSinceAck = (GetTime() - rulesCookie.GetClientTime(client)) / 86400;
-	if (daysSinceAck <= cvExpireDays.IntValue)
+	if (daysSinceAck > cvExpireDays.IntValue)
 	{
 		rulesCookie.Set(client, "0");
 	}
@@ -123,26 +121,20 @@ void ShowRules(int client)
 
 public int OnRulesMenu(Menu menu, MenuAction action, int param1, int param2)
 {
-	switch (action)
+	if (action == MenuAction_Cancel)
 	{
-		case MenuAction_Select:
-		{
-			if (AreClientCookiesCached(param1))
-				rulesCookie.Set(param1, "1");
-		}
-
-		case MenuAction_End:
-		{
-			delete menu;
-		}
+		if (param2 == MenuCancel_Exit && AreClientCookiesCached(param1))
+			rulesCookie.Set(param1, "1");
 	}
-
+	else if (action == MenuAction_End)
+	{
+		delete menu;
+	}
 }
 
 void DiscoverRules()
 {
 	maxRules = 0;
-
 	char buffer[6];
 
 	for (;;)
@@ -150,7 +142,6 @@ void DiscoverRules()
 		IntToString(maxRules, buffer, sizeof(buffer));
 		if (!TranslationPhraseExists(buffer))
 			break;
-		
 		maxRules++;
 	}
 }
