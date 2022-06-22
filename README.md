@@ -1,20 +1,20 @@
 
-Simple lightweight server rules menu for No More Room in Hell.
+Mensaje ligero de reglas para  No More Room in Hell.
 
-Displays server rules as a radio menu to players after they press "Join Game". 
-Players who acknowledge the rules won't be prompted again for N (configurable) days.
+Muestra un mensaje despues de que aparezca el "Join Game" con las reglas (NO NECESARIAMENTE PUEDEN SER REGLAS). 
+Incluye un comando para determinar cuantos dias "N" se puede mostrar el mensaje (Configurable).
 
 ![nmrih_FaJop3qLwm](https://user-images.githubusercontent.com/11559683/115821664-93553e00-a3d9-11eb-957d-8bccc9d4b219.png)
 
 
-# Requirements
-Sourcemod 1.10 or above
+# Requisitos
+Sourcemod 1.10 o superior.
 
-# Setup
-- Place `nmrih-rules-menu.smx` in `addons/sourcemod/plugins`
-- Place `nmrih-rules-menu.phrases.txt` in `addons/sourcemod/translations`
+# Instalacion
+- Colocar el archivo `nmrih-rules-menu.smx` en `addons/sourcemod/plugins`
+- Colocar el archivo `nmrih-rules-menu.phrases.txt` en `addons/sourcemod/translations`
 
-- Add your rules to `nmrih-rules-menu.phrases.txt`. Keys should be consecutive numbers starting from 0.
+- Puedes modificar el archivo `nmrih-rules-menu.phrases.txt`. El reglamento siempre empieza con la orden 0.
 
 ```cpp
 "Phrases"
@@ -23,8 +23,9 @@ Sourcemod 1.10 or above
 
 	"0"
 	{
-		"en"	"No shrimps"
+		"en"	"Rule 1"
 		"ko"	"새우 금지"
+		"es"	"Regla 1 "
 	}
 
 	"1"
@@ -35,13 +36,13 @@ Sourcemod 1.10 or above
 }
 ```
 
-# ConVars and commands
+# ConVars y comandos
 
 - `sm_rules_acknowledge_expire_days` (Default: 90)
-	- Days to wait after a player has acknowledged the rules before showing them again
+	- Dias que el mensaje les aparecerá a los usuarios. Por defecto es 90 dias
 
 - `sm_rules_cmds` (Default: "sm_rules")
-	- Space-separated list of console commands that should bring up the rules
+	- Lista separada por espacios de los comandos de la consola que deberían mostrar las reglas. Recomendable no tocar. Dejarlo como sm_rules
 
 - `sm_rules_refresh` (Requires ADMFLAG_GENERIC)
-	- Refresh rules cache
+	- Refresca la actualizacion de las reglas. Al cambiar de mapa se actualizará a la fuerza.
