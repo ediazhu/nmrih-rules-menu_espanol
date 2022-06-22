@@ -3,20 +3,29 @@
 	"Title"
 	{
 		"en"	"Server Rules"
+		"es"	"Reglas del Servidor"
 	}
 	
 	"0"
 	{
-		"en"	"Don't do thing 1"
+		"en"	"No trolls - Admins can view all"
+		"es"	"No trolls - Los admins pueden ver todo"
 	}
 
 	"1"
 	{
-		"en"	"Don't do thing 2"
+		"en"	"Players can use the command !rtv"
+		"es"	"Los jugadores pueden usar el comando !rtv"
 	}
 
 	"2"
 	{
-		"en"	"Don't do thing 3"
+		"en"	"Enjoy the server"
+		"es"	"Disfruta del Servidor"
+	}
+	"3"
+	{
+		"en"	"Root admin: Oakenfold"
+		"es"	"Admin Raiz: Oakenfold"
 	}
 }
